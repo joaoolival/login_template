@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware(['auth']);
+})->middleware(['auth','verified']);
 
 
-Route::view('home','home')->middleware('auth');
+Route::view('home','home')->middleware(['auth','verified']);
