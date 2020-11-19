@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+  if(Auth::check()){
+    return redirect()->route('home');
+  }else{
     return view('welcome');
-})->middleware(['auth','verified']);
+  }
+});
 
 
-Route::view('home','home')->middleware(['auth','verified']);
+Route::view('/home','home')->middleware(['auth','verified'])->name('home');;
